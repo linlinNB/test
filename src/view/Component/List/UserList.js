@@ -30,10 +30,22 @@ class UserList extends React.Component {
     }
 
     /**
-     * 通过get请求进行用户删除操作
+     * 通过get请求进行用户删除操作，此时操共分为两步：
+     *  1.删除当前state中的数据，在可显示的界面中"清除数据"
+     *  2.通过get请求删除数据库中的数据
      */
-    deleteUserInfoOne() {
-        console.log('点击了删除用户信息按钮');
+    deleteUserInfoOne(userID) {
+        console.log('点击了删除用户信息按钮, 当前用户ID = ', userID);
+
+        //发送请求进行数据库中的删除
+        axios.delete(` /api/users/${userID}`)
+            .then((response => {
+                console.log('删除用户信息成功');
+                this.getUserList();
+            }))
+            .catch((error) => {
+                console.log('删除过程中出现问题，错误原因error = ', error);
+            })
     }
 
     /**
@@ -66,10 +78,10 @@ class UserList extends React.Component {
             title: '更多操作',
             key: 'TypeAction',
             render: (text, record, dataSource, index) => {
-                const Id = record.ArticleId;
+                const Id = record.id;
                 return (
                     <div>
-                        <Button onClick={this.deleteUserInfoOne}>删除</Button>
+                        <Button onClick={() => this.deleteUserInfoOne(Id)}>删除</Button>
                         <Button onClick={this.UpdateUserInfoOne}>编辑</Button>
                     </div>
                 )

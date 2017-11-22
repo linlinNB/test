@@ -1,36 +1,45 @@
+<h1>题目解答</h1>
 
-# 笔试题
+<hr></hr>
 
-请fork本项目到自己的仓库中,并在此基础上进行开发
+<ul>
 
-按要求实现功能,并分阶段提交commit
+​	<li><h3>项目结构</h3></li>
 
-### 功能要求
+​	<li><h3>相关工具</h3></li>
 
-#####  完成关于用户信息的CURD页面
+​	<li><h3>功能实现</h3></li>
 
-用户信息数据字段: id, name, email
+</ul>
 
-*  列表页   table列表 展示所有用户信息(可编辑更新， 删除)
-*  详情页   展示单个用户信息（可编辑更新, 删除)
-*  新建页   新建一个用户,创建成功跳转到详情页面
-*  显示请求返回信息，动态更新页面数据
+<hr/>
 
-######  字段验证
-name: { type: 'string', max-length: 50, required }
+<h2>项目结构</h2>
 
-email: { type: 'email', max-length: 100, required }
+<p>分为Component文件夹，Cotainer文件夹，Image文件夹共三大类，其中项目原有的Home文件夹被彻底作废，因为本人感觉实在不适合项目规整，望老师见谅</p>
 
-### 接口
-*  host: https://www.mxcins.com
-*  list : GET /api/users
-*  create: POST /api/users
-*  update: PUT /api/users/:id
-*  destroy: DELETE /api/users/:id
+<ul>
 
+​	<li>Component文件夹: 放置相关组件，因为项目功能比较小，所以并没有分成智能组件和木偶组件</li>
 
-##### 其他
+​	<li>Cotainer文件夹: 放置业务相关组件，可以把此文件夹和Page混在一起，因为业务较为简单，所以做了一个简单的整合，可以看做页面的集合吧</li>
 
-可以使用第三方库
+​	<li>Image文件夹: 放置业务相关的静态资源，比如logo需要的图片，滑动图需要的图片等等</li>
 
-any question: mxcins@gmail.com
+</ul>
+
+<h2>相关工具</h2>
+
+<ul>
+
+​	<li>IDE: webStorm</li>
+
+​	<li>异步请求框架:  axios</li>
+
+​	<li>UI库: 蚂蚁金服开源的antd-design<li>
+
+​	<li>自动导入plugin: babel-plugin</li>
+
+​	<li>跨域设置: 在package.json中设置poxy代理对象进行转跳</li>
+
+</ul>

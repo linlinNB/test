@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {Pagination, Tabs, Icon, Row, Col, Menu, Table, Button} from 'antd';
+//设置跳转路由
+import {NavLink} from 'react-router-dom';
 
 
 class UserList extends React.Component {
@@ -51,8 +53,9 @@ class UserList extends React.Component {
     /**
      * 转跳到用户更新的页面
      */
-    UpdateUserInfoOne() {
+    UpdateUserInfoOne(userID) {
         console.log('点击了编辑用户信息按钮');
+
     }
 
     //进行User列表的初步请求,本人习惯是在componentDidMount中进行请求，因为此时已经经过render（）函数生成的js树，还没有正式
@@ -82,7 +85,9 @@ class UserList extends React.Component {
                 return (
                     <div>
                         <Button onClick={() => this.deleteUserInfoOne(Id)}>删除</Button>
-                        <Button onClick={this.UpdateUserInfoOne}>编辑</Button>
+                        <Button onClick={() => this.UpdateUserInfoOne(Id)}>
+                            <NavLink to={`/updateUser/${Id}`}>修改</NavLink>
+                        </Button>
                     </div>
                 )
             },

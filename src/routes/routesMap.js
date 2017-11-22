@@ -24,7 +24,7 @@ export default [
     {
         exact: true,
         name: 'updateUser',
-        path: '/updateUser',
+        path: '/updateUser/:id',
         component: UpdateUserView,
     }
 ]

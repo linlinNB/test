@@ -19,16 +19,9 @@ const {Header, Content, Footer} = Layout;
 class HomeView extends React.Component {
     constructor(props) {
         super(...arguments)
-        this.addUserAction = this.addUserAction.bind(this);
         this.state = {}
     }
 
-    /**
-     * 增加用户操作
-     */
-    addUserAction() {
-        console.log('增加用户相关的操作');
-    }
 
     render() {
         return (
@@ -39,7 +32,11 @@ class HomeView extends React.Component {
                             <PhotoIcon/>
                         </Col>
                         <Col push={16} span={1}>
-                            <Button onClick={this.addUserAction}>增加用户</Button>
+                            <Button onClick={this.addUserAction}>
+                                <Link to="/addUser">
+                                    增加用户
+                                </Link>
+                            </Button>
                         </Col>
                     </Row>
                 </Header>
